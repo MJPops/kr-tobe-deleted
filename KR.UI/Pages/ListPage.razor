@@ -13,9 +13,9 @@
             {
                 <button class="btn btn-outline-secondary me-2" type="button" @onclick="_ => ReadPrevious()">Previous</button>
             }
-            <button class="btn btn-outline-secondary me-2" type="button" @onclick="_ => Update()">Update</button>
             @if (!isNewCreating)
             {
+                <button class="btn btn-outline-secondary me-2" type="button" @onclick="_ => Update()">Update</button>
                 <button class="btn btn-outline-secondary me-2" type="button" @onclick="_ => StartCreatingNew()">New</button>
             }
             else
