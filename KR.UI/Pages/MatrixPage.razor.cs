@@ -54,7 +54,7 @@ namespace KR.UI.Pages
             }
             else
             {
-                procedureTypes = procedureTypesSource.Where(p => p.Name.Contains(procedureName)).ToList();
+                procedureTypes = procedureTypesSource.Where(p => p.Name.ToLower().Contains(procedureName)).ToList();
             }
         }
 

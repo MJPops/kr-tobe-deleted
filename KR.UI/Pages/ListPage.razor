@@ -24,7 +24,7 @@
                 <button class="btn btn-outline-secondary me-2" type="button" @onclick="_ => CancelNewCreating()">Cancel</button>
                 
             }
-            @if (currentShift < maxCount)
+            @if (currentShift < maxCount - 1)
             {
                 <button class="btn btn-outline-secondary me-2" type="button" @onclick="_ => ReadNext()">Next</button>
             }
