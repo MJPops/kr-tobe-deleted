@@ -9,7 +9,7 @@
         <input @bind-value:event="oninput" @bind-value="currentProcedureType.Description" type="text" class="form-control mt-3" placeholder="Enter procedure name">
         <input @bind-value:event="oninput" @bind-value="currentProcedureType.ApproximateTime" type="time" class="form-control mt-3" placeholder="Enter procedure name">
         <div class="d-flex mt-3">
-            @if (currentShift > 0)
+            @if (currentShift > 0 && !isNewCreating)
             {
                 <button class="btn btn-outline-secondary me-2" type="button" @onclick="_ => ReadPrevious()">Previous</button>
             }
@@ -24,7 +24,7 @@
                 <button class="btn btn-outline-secondary me-2" type="button" @onclick="_ => CancelNewCreating()">Cancel</button>
                 
             }
-            @if (currentShift < maxCount - 1)
+            @if (currentShift < maxCount - 1 && !isNewCreating)
             {
                 <button class="btn btn-outline-secondary me-2" type="button" @onclick="_ => ReadNext()">Next</button>
             }
