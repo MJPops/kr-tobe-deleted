@@ -1,3 +1,4 @@
+using KR.Api.Repositories;
 using KR.Domains.Interfaces;
 using KR.Domains.Model;
 using Microsoft.AspNetCore.Mvc;
@@ -25,6 +26,12 @@ namespace KR.Api.Controllers
         public async Task<List<ProcedureType>> Read([FromQuery] int skip, [FromQuery] int take)
         {
             return await procedureTypeRepository.Read(skip, take);
+        }
+
+        [HttpGet("ByScript/{script}")]
+        public async Task<List<ProcedureType>> ReadWithScript(string script)
+        {
+            return procedureTypeRepository.ReadWithScript(script);
         }
 
         [HttpPut("{id}")]

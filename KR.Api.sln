@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.33627.172
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KR.Api", "KR.Api\KR.Api.csproj", "{013FD631-7E58-4A40-B0A0-1D8890251FBB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KR.Api", "KR.Api\KR.Api.csproj", "{013FD631-7E58-4A40-B0A0-1D8890251FBB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KR.Domains", "KR.Domains\KR.Domains.csproj", "{1020C7D6-62B3-49EC-A613-B9016C5DD234}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KR.Domains", "KR.Domains\KR.Domains.csproj", "{1020C7D6-62B3-49EC-A613-B9016C5DD234}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KR.UI", "KR.UI\KR.UI.csproj", "{4DF52041-8B96-4043-BFFD-0374D1102F03}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KR.UI", "KR.UI\KR.UI.csproj", "{4DF52041-8B96-4043-BFFD-0374D1102F03}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

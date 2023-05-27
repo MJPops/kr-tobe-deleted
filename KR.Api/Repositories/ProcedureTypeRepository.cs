@@ -1,8 +1,7 @@
-﻿using KR.Domains;
-using KR.Domains.Model;
+﻿using KR.Domains.Model;
 using Microsoft.EntityFrameworkCore;
 
-namespace KR.Api
+namespace KR.Api.Repositories
 {
     public class ProcedureTypeRepository
     {
@@ -43,6 +42,11 @@ namespace KR.Api
             entity.ApproximateTime = procedureType.ApproximateTime;
             dbContext.Update(entity);
             await dbContext.SaveChangesAsync();
+        }
+
+        public List<ProcedureType> ReadWithScript(string script)
+        {
+            return dbContext.ProcedureTypes.FromSqlRaw(script).ToList();
         }
     }
 }

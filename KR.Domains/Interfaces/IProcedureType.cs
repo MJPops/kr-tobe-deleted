@@ -11,6 +11,9 @@ namespace KR.Domains.Interfaces
         [Get("/ProcedureType")]
         public Task<List<ProcedureType>> Read([Query] int skip, [Query] int take);
 
+        [Get("/ProcedureType/ByScript/{script}")]
+        public Task<List<ProcedureType>> ReadWithScript([AliasAs("script")] string skip);
+
         [Put("/ProcedureType/{id}")]
         public Task Update([AliasAs("id")] int id, [Body] ProcedureType procedureType);
 

@@ -1,4 +1,5 @@
 using KR.Api;
+using KR.Api.Repositories;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
