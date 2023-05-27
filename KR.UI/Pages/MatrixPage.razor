@@ -28,7 +28,7 @@
                     <div class="d-flex col mx-3">@procedureTypes[j].Id</div>
                     <input @bind-value:event="oninput" @bind-value="procedureTypes[j].Name" class="d-flex col-3 mx-3" />
                     <input @bind-value:event="oninput" @bind-value="procedureTypes[j].Description" class="d-flex col-4 mx-3" />
-                    <input @bind-value:event="oninput" @bind-value="procedureTypes[j].ApproximateTime" class="d-flex col mx-3" />
+                    <input @bind-value:event="oninput" @bind-value="procedureTypes[j].ApproximateTime" type="time" class="d-flex col mx-3" />
                     <div class="d-flex link-primary text-center col ms-3 me-2" style="cursor: pointer" @onclick="_ => Save(procedureTypes[j].Id)">
                         save
                     </div>

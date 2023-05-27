@@ -37,5 +37,11 @@ namespace KR.UI.Pages
             currentProcedureType = await procedureTypeService.Read(currentShift);
             StateHasChanged();
         }
+
+        private async Task Update()
+        {
+            await procedureTypeService.Update(currentProcedureType.Id, currentProcedureType);
+            StateHasChanged();
+        }
     }
 }

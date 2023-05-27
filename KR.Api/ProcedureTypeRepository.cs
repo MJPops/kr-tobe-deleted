@@ -38,6 +38,9 @@ namespace KR.Api
         public async Task Update(int id, ProcedureType procedureType)
         {
             var entity = await dbContext.ProcedureTypes.AsNoTrackingWithIdentityResolution().FirstOrDefaultAsync(pt => pt.Id == id);
+            entity.Name = procedureType.Name;
+            entity.Description = procedureType.Description;
+            entity.ApproximateTime = procedureType.ApproximateTime;
             dbContext.Update(entity);
             await dbContext.SaveChangesAsync();
         }

@@ -7,12 +7,13 @@
         <input @bind-value:event="oninput" @bind-value="currentProcedureType.Id" disabled="disabled" type="text" class="form-control mt-3" placeholder="Enter procedure name">
         <input @bind-value:event="oninput" @bind-value="currentProcedureType.Name" type="text" class="form-control mt-3" placeholder="Enter procedure name">
         <input @bind-value:event="oninput" @bind-value="currentProcedureType.Description" type="text" class="form-control mt-3" placeholder="Enter procedure name">
-        <input @bind-value:event="oninput" @bind-value="currentProcedureType.ApproximateTime" type="text" class="form-control mt-3" placeholder="Enter procedure name">
+        <input @bind-value:event="oninput" @bind-value="currentProcedureType.ApproximateTime" type="time" class="form-control mt-3" placeholder="Enter procedure name">
         <div class="d-flex mt-3">
             @if (currentShift > 0)
             {
                 <button class="btn btn-outline-secondary me-2" type="button" @onclick="_ => ReadPrevious()">Previous</button>
             }
+            <button class="btn btn-outline-secondary me-2" type="button" @onclick="_ => Update()">Update</button>
             @if (currentShift < maxCount)
             {
                 <button class="btn btn-outline-secondary me-2" type="button" @onclick="_ => ReadNext()">Next</button>
