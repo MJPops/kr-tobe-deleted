@@ -14,6 +14,16 @@
                 <button class="btn btn-outline-secondary me-2" type="button" @onclick="_ => ReadPrevious()">Previous</button>
             }
             <button class="btn btn-outline-secondary me-2" type="button" @onclick="_ => Update()">Update</button>
+            @if (!isNewCreating)
+            {
+                <button class="btn btn-outline-secondary me-2" type="button" @onclick="_ => StartCreatingNew()">New</button>
+            }
+            else
+            {
+                <button class="btn btn-outline-secondary me-2" type="button" @onclick="_ => SaveNew()">Save</button>
+                <button class="btn btn-outline-secondary me-2" type="button" @onclick="_ => CancelNewCreating()">Cancel</button>
+                
+            }
             @if (currentShift < maxCount)
             {
                 <button class="btn btn-outline-secondary me-2" type="button" @onclick="_ => ReadNext()">Next</button>

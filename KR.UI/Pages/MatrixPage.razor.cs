@@ -9,6 +9,7 @@ namespace KR.UI.Pages
     {
         private readonly IProcedureType procedureTypeService;
 
+        private ProcedureType procedureTypeToCreate = new();
         private List<ProcedureType> procedureTypes = new();
         private List<ProcedureType> procedureTypesSource = new();
         private int? editItem = null;
@@ -55,6 +56,14 @@ namespace KR.UI.Pages
             {
                 procedureTypes = procedureTypesSource.Where(p => p.Name.Contains(procedureName)).ToList();
             }
+        }
+
+        private async Task CreateNew()
+        {
+            await procedureTypeService.Create(procedureTypeToCreate);
+            procedureTypeToCreate = new();
+            procedureTypesSource = await procedureTypeService.Read(0, int.MaxValue);
+            StateHasChanged();
         }
     }
 }

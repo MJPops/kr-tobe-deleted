@@ -1,5 +1,4 @@
 ﻿@page "/"
-@using BlazorDateRangePicker
 
 <PageTitle>Matrix</PageTitle>
 
@@ -52,6 +51,16 @@
             </div>
         }
     }
+    <h3 class="mt-3">Create</h3>
+    <hr />
+    <div class="d-flex flex-row align-items-center mt-1 px-2">
+        <div class="d-flex col mx-3">...</div>
+        <input @bind-value:event="oninput" @bind-value="procedureTypeToCreate.Name" class="d-flex col-3 mx-3" />
+        <input @bind-value:event="oninput" @bind-value="procedureTypeToCreate.Description" class="d-flex col-4 mx-3" />
+        <input @bind-value:event="oninput" @bind-value="procedureTypeToCreate.ApproximateTime" type="time" class="d-flex col mx-3" />
+        <button class="btn btn-outline-secondary" type="button" @onclick="_ => CreateNew()">Create</button>
+    </div>
+    <h3 class="mt-3">Search</h3>
     <hr />
     <div class="input-group mt-3">
         <input @bind-value:event="oninput" @bind-value="procedureName" type="text" class="form-control" placeholder="Enter procedure name">

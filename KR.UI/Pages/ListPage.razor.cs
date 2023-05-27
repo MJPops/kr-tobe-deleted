@@ -12,6 +12,8 @@ namespace KR.UI.Pages
         private int maxCount = 0;
         private ProcedureType currentProcedureType = new();
 
+        private bool isNewCreating;
+
         public ListPage()
         {
             procedureTypeService = RestService.For<IProcedureType>("http://localhost:8080");
@@ -41,6 +43,28 @@ namespace KR.UI.Pages
         private async Task Update()
         {
             await procedureTypeService.Update(currentProcedureType.Id, currentProcedureType);
+            StateHasChanged();
+        }
+
+        private void StartCreatingNew()
+        {
+            isNewCreating = true;
+            currentProcedureType = new();
+            StateHasChanged();
+        }
+
+        private async Task CancelNewCreating()
+        {
+            isNewCreating = false;
+            currentProcedureType = await procedureTypeService.Read(currentShift);
+            StateHasChanged();
+        }
+
+        private async void SaveNew()
+        {
+            isNewCreating = false;
+            await procedureTypeService.Create(currentProcedureType);
+            currentProcedureType = await procedureTypeService.Read(currentShift);
             StateHasChanged();
         }
     }
