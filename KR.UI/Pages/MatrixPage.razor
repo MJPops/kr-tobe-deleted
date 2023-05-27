@@ -1,0 +1,60 @@
+﻿@page "/"
+@using BlazorDateRangePicker
+
+<PageTitle>Matrix</PageTitle>
+
+<div class="d-flex flex-column">
+    <div class="d-flex flex-row px-2">
+        <div class="d-flex text-center col mx-3">Id</div>
+        <div class="d-flex text-center col-3 mx-3">Name</div>
+        <div class="d-flex text-center col-4 mx-3">Description</div>
+        <div class="d-flex text-center col mx-3">ApproximateTime</div>
+        <div class="d-flex col mx-3"></div>
+    </div>
+    <hr />
+    @{
+        if (procedureTypes.Count == 0)
+        {
+            <div class="d-flex flex-row align-items-center justify-content-center mt-1 px-2">
+                <h2>Not found</h2>
+            </div>
+        }
+        for (int i = 0; i < procedureTypes.Count; i++)
+        {
+            int j = i;
+            <div class="d-flex flex-row align-items-center mt-1 px-2" style="@(i % 2 == 0 ? "background-color: var(--bs-gray-200)" : "")">
+                @if (editItem == procedureTypes[i].Id)
+                {
+                    <div class="d-flex col mx-3">@procedureTypes[j].Id</div>
+                    <input @bind-value:event="oninput" @bind-value="procedureTypes[j].Name" class="d-flex col-3 mx-3" />
+                    <input @bind-value:event="oninput" @bind-value="procedureTypes[j].Description" class="d-flex col-4 mx-3" />
+                    <input @bind-value:event="oninput" @bind-value="procedureTypes[j].ApproximateTime" class="d-flex col mx-3" />
+                    <div class="d-flex link-primary text-center col ms-3 me-2" style="cursor: pointer" @onclick="_ => Save(procedureTypes[j].Id)">
+                        save
+                    </div>
+                    <div class="d-flex link-primary text-center col me-3" style="cursor: pointer" @onclick="_ => Cancel()">
+                        cancel
+                    </div>
+                }
+                else
+                {
+                    <div class="d-flex col mx-3">@procedureTypes[i].Id</div>
+                    <div class="d-flex col-3 mx-3">@procedureTypes[i].Name</div>
+                    <div class="d-flex col-4 mx-3">@procedureTypes[i].Description</div>
+                    <div class="d-flex text-center col mx-3">@procedureTypes[i].ApproximateTime.ToString("HH:mm:ss")</div>
+                    <div class="d-flex link-primary text-center col mx-3" style="cursor: pointer" @onclick="_ => Edit(procedureTypes[j].Id)">
+                        @(editItem == null
+                            ? "edit"
+                            : ""
+                        )
+                    </div>
+                }
+            </div>
+        }
+    }
+    <hr />
+    <div class="input-group mt-3">
+        <input @bind-value:event="oninput" @bind-value="procedureName" type="text" class="form-control" placeholder="Enter procedure name">
+        <button class="btn btn-outline-secondary" type="button" @onclick="_ => Find()">Search</button>
+    </div>
+</div>
